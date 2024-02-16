@@ -1,0 +1,579 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome1",
+    "definitions": {
+        "Welcome1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "transcodeOutputPayload": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TranscodeOutputPayload"
+                    }
+                }
+            },
+            "required": [
+                "transcodeOutputPayload"
+            ],
+            "title": "Welcome1"
+        },
+        "TranscodeOutputPayload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "transcode_input": {
+                    "$ref": "#/definitions/TranscodeInput"
+                },
+                "transcode_config": {
+                    "$ref": "#/definitions/TranscodeConfig"
+                },
+                "mediainfodata": {
+                    "$ref": "#/definitions/Mediainfodata"
+                }
+            },
+            "required": [
+                "mediainfodata",
+                "transcode_config",
+                "transcode_input"
+            ],
+            "title": "TranscodeOutputPayload"
+        },
+        "Mediainfodata": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resolution": {
+                    "$ref": "#/definitions/Resolution"
+                },
+                "durationInMS": {
+                    "type": "integer"
+                },
+                "isAppleMedia": {
+                    "type": "null"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "fileSizeInBytes": {
+                    "type": "integer"
+                },
+                "totalBitrateInKbps": {
+                    "type": "integer"
+                },
+                "videoBitRateInKbps": {
+                    "type": "integer"
+                },
+                "audioBitrateInKbps": {
+                    "type": "integer"
+                },
+                "frameRate": {
+                    "type": "number"
+                },
+                "audioSampleRate": {
+                    "type": "integer"
+                },
+                "channels": {
+                    "type": "integer"
+                },
+                "audioCodec": {
+                    "type": "string"
+                },
+                "videoCodec": {
+                    "type": "string"
+                },
+                "videoCodecId": {
+                    "type": "string"
+                },
+                "isAudioOnly": {
+                    "type": "boolean"
+                },
+                "rotation": {
+                    "type": "number"
+                },
+                "colorPrimaries": {
+                    "type": "null"
+                },
+                "transferCharacteristics": {
+                    "type": "null"
+                },
+                "bitDepth": {
+                    "type": "integer"
+                },
+                "inputExtension": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "audioBitrateInKbps",
+                "audioCodec",
+                "audioSampleRate",
+                "bitDepth",
+                "channels",
+                "colorPrimaries",
+                "durationInMS",
+                "fileSizeInBytes",
+                "format",
+                "frameRate",
+                "inputExtension",
+                "isAppleMedia",
+                "isAudioOnly",
+                "resolution",
+                "rotation",
+                "totalBitrateInKbps",
+                "transferCharacteristics",
+                "videoBitRateInKbps",
+                "videoCodec",
+                "videoCodecId"
+            ],
+            "title": "Mediainfodata"
+        },
+        "Resolution": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "height": {
+                    "type": "integer"
+                },
+                "width": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "height",
+                "width"
+            ],
+            "title": "Resolution"
+        },
+        "TranscodeConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "renditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Rendition"
+                    }
+                },
+                "adaptiveBitStream": {
+                    "$ref": "#/definitions/AdaptiveBitStream"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Image"
+                    }
+                }
+            },
+            "required": [
+                "adaptiveBitStream",
+                "images",
+                "renditions"
+            ],
+            "title": "TranscodeConfig"
+        },
+        "AdaptiveBitStream": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "hls": {
+                    "$ref": "#/definitions/HLS"
+                }
+            },
+            "required": [
+                "hls"
+            ],
+            "title": "AdaptiveBitStream"
+        },
+        "HLS": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "streams": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Stream"
+                    }
+                },
+                "playlist": {
+                    "$ref": "#/definitions/Playlist"
+                }
+            },
+            "required": [
+                "playlist",
+                "streams"
+            ],
+            "title": "HLS"
+        },
+        "Playlist": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "null"
+                },
+                "outputLocation": {
+                    "$ref": "#/definitions/OutputLocation"
+                }
+            },
+            "required": [
+                "format",
+                "id",
+                "name",
+                "outputLocation"
+            ],
+            "title": "Playlist"
+        },
+        "OutputLocation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "remote": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/definitions/Type"
+                }
+            },
+            "required": [
+                "remote",
+                "type"
+            ],
+            "title": "OutputLocation"
+        },
+        "Stream": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "source": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    ]
+                },
+                "segmentSeconds": {
+                    "type": "integer"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "segmentType": {
+                    "type": "string"
+                },
+                "streamSegmentFilename": {
+                    "type": "null"
+                },
+                "indexFileName": {
+                    "type": "string"
+                },
+                "outputLocation": {
+                    "$ref": "#/definitions/OutputLocation"
+                },
+                "videoPreset": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/VideoPreset"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "audioPreset": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/AudioPreset"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "customPreset": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/CustomPreset"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "audioPreset",
+                "customPreset",
+                "format",
+                "id",
+                "indexFileName",
+                "outputLocation",
+                "segmentSeconds",
+                "segmentType",
+                "source",
+                "streamSegmentFilename",
+                "videoPreset"
+            ],
+            "title": "Stream"
+        },
+        "AudioPreset": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "audioBitrate": {
+                    "type": "integer"
+                },
+                "audioChannel": {
+                    "type": "integer"
+                },
+                "audioCodec": {
+                    "type": "string"
+                },
+                "audioSampleRate": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "audioBitrate",
+                "audioChannel",
+                "audioCodec",
+                "audioSampleRate"
+            ],
+            "title": "AudioPreset"
+        },
+        "CustomPreset": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "reverse": {
+                    "type": "boolean"
+                },
+                "skipVideo": {
+                    "type": "boolean"
+                },
+                "skipAudio": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "reverse",
+                "skipAudio",
+                "skipVideo"
+            ],
+            "title": "CustomPreset"
+        },
+        "VideoPreset": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resolution": {
+                    "$ref": "#/definitions/Resolution"
+                },
+                "keyframeRate": {
+                    "type": "integer"
+                },
+                "videoBitrate": {
+                    "type": "integer"
+                },
+                "maxVideoBitrate": {
+                    "type": "integer"
+                },
+                "minVideoBitrate": {
+                    "type": "integer"
+                },
+                "upscale": {
+                    "type": "boolean"
+                },
+                "aspectMode": {
+                    "type": "string"
+                },
+                "h264Profile": {
+                    "type": "string"
+                },
+                "h264Level": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "frameRate": {
+                    "type": "integer"
+                },
+                "targetVideoBitrate": {
+                    "type": "integer"
+                },
+                "bitrateEncoding": {
+                    "type": "integer"
+                },
+                "videoCodecName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "aspectMode",
+                "bitrateEncoding",
+                "frameRate",
+                "h264Level",
+                "h264Profile",
+                "keyframeRate",
+                "maxVideoBitrate",
+                "minVideoBitrate",
+                "resolution",
+                "targetVideoBitrate",
+                "upscale",
+                "videoBitrate",
+                "videoCodecName"
+            ],
+            "title": "VideoPreset"
+        },
+        "Image": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "outputLocation": {
+                    "$ref": "#/definitions/OutputLocation"
+                },
+                "timeInstantInSec": {
+                    "type": "integer"
+                },
+                "intervalInSec": {
+                    "type": "integer"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "resolution": {
+                    "$ref": "#/definitions/Resolution"
+                },
+                "presetLocalPath": {
+                    "type": "null"
+                }
+            },
+            "required": [
+                "format",
+                "id",
+                "intervalInSec",
+                "name",
+                "outputLocation",
+                "presetLocalPath",
+                "resolution",
+                "timeInstantInSec",
+                "type"
+            ],
+            "title": "Image"
+        },
+        "Rendition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "outputLocation": {
+                    "$ref": "#/definitions/OutputLocation"
+                },
+                "videoPreset": {
+                    "$ref": "#/definitions/VideoPreset"
+                },
+                "audioPreset": {
+                    "$ref": "#/definitions/AudioPreset"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "customPreset": {
+                    "$ref": "#/definitions/CustomPreset"
+                },
+                "presetLocalPath": {
+                    "type": "null"
+                }
+            },
+            "required": [
+                "audioPreset",
+                "customPreset",
+                "format",
+                "id",
+                "name",
+                "outputLocation",
+                "presetLocalPath",
+                "videoPreset"
+            ],
+            "title": "Rendition"
+        },
+        "TranscodeInput": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mediaUrl": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http"
+                    ],
+                    "qt-uri-extensions": [
+                        ".mp4"
+                    ]
+                },
+                "startTime": {
+                    "type": "integer"
+                },
+                "endTime": {
+                    "type": "integer"
+                },
+                "splitOrder": {
+                    "type": "integer"
+                },
+                "inputType": {
+                    "type": "null"
+                },
+                "inputExtension": {
+                    "type": "string"
+                },
+                "processorType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "endTime",
+                "inputExtension",
+                "inputType",
+                "mediaUrl",
+                "processorType",
+                "splitOrder",
+                "startTime"
+            ],
+            "title": "TranscodeInput"
+        },
+        "Type": {
+            "type": "string",
+            "enum": [
+                "S3"
+            ],
+            "title": "Type"
+        }
+    }
+}
